@@ -21,5 +21,10 @@ class Ball(Turtle):
         self.goto(x=0, y=0)
         self.write(arg="Game Over", font=("Arial", 24, "normal"), align="center")
 
-    def bounce(self):
-       self.y_move *= -1
+    def y_bounce(self):
+        self.y_move *= -1
+        # while self.y_move < 20:
+        #     self.y_move += 3
+
+    def x_bounce(self):
+        self.x_move *= -1

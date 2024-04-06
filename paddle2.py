@@ -1,15 +1,14 @@
 from turtle import Turtle
-from paddle import Paddle
 
 
-class Paddle2(Paddle):
+class Paddle2(Turtle):
     def __init__(self):
 
-        self.paddle = Turtle()
-        self.paddle.penup()
-        self.paddle.shape("square")
-        self.paddle.shapesize(stretch_len=3.5)
-        self.paddle.color("white")
-        self.paddle.tilt(90)
-        self.paddle.goto(280, 250)
+        super().__init__()
+        self.penup()
+        self.shape("square")
+        self.shapesize(stretch_len=3.5)
+        self.color("white")
+        self.tilt(90)
+        self.goto(340, 250)
 
