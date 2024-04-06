@@ -18,7 +18,8 @@ class Ball(Turtle):
         self.goto(x=new_x, y=new_y)
 
     def game_over(self):
-        self.write(arg="Game Over", font=("Arial", 8, "normal"), align="center")
+        self.goto(x=0, y=0)
+        self.write(arg="Game Over", font=("Arial", 24, "normal"), align="center")
 
     def bounce(self):
        self.y_move *= -1

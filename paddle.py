@@ -5,19 +5,20 @@ STARTING_POSITION = [(-280, 250)]
 
 class Paddle(Turtle):
     def __init__(self):
+        super().__init__()
         for pos in STARTING_POSITION:
-            self.paddle = Turtle()
-            self.paddle.penup()
-            self.paddle.shape("square")
-            self.paddle.shapesize(stretch_len=3.5)
-            self.paddle.color("white")
-            self.paddle.tilt(90)
-            self.paddle.goto(pos)
+
+            self.penup()
+            self.shape("square")
+            self.shapesize(stretch_len=3.5)
+            self.color("white")
+            self.tilt(90)
+            self.goto(pos)
 
     def up(self):
-        new_y = self.paddle.ycor() + 10
-        self.paddle.goto(x=self.paddle.xcor(), y=new_y)
+        new_y = self.ycor() + 10
+        self.goto(x=self.xcor(), y=new_y)
 
     def down(self):
-        new_y = self.paddle.ycor() - 10
-        self.paddle.goto(x=self.paddle.xcor(), y=new_y)
+        new_y = self.ycor() - 10
+        self.goto(x=self.xcor(), y=new_y)

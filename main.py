@@ -4,7 +4,7 @@ from paddle import Paddle
 from paddle2 import Paddle2
 from ball import Ball
 
-SPLIT_POSITION = [(0, 280), (0, 180),  (0, 80),  (0, -20),  (0, -100), (0, -200)]
+SPLIT_POSITION = [(0, 280), (0, 180), (0, 80), (0, -20), (0, -100), (0, -200)]
 
 screen = Screen()
 screen.title("Pong")
@@ -42,14 +42,15 @@ while game_not_over:
     ball.move()
     print(ball.pos())
 
-
     # detect collision with wall
     if ball.ycor() > 280 or ball.ycor() < -280:
-        print("Hello")
         ball.bounce()
 
+    if ball.xcor() > 380 or ball.xcor() < -380:
+        ball.game_over()
+        game_not_over = False
 
-    # if ball.pos() == paddle1.pos() or ball.pos() == paddle2.pos():
-    #     ball.move()
+    if ball.pos() == paddle1.pos() or ball.pos() == paddle2.pos():
+        ball.bounce()
 
 screen.exitonclick()
