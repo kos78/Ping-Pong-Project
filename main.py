@@ -3,8 +3,9 @@ from turtle import Turtle, Screen
 from paddle import Paddle
 from paddle2 import Paddle2
 from ball import Ball
+from scoreboard import Scoreboard
 
-SPLIT_POSITION = [(0, 280), (0, 180), (0, 80), (0, -20), (0, -100), (0, -200)]
+SPLIT_POSITION = [(0, 250), (0, 150), (0, 50), (0, -50), (0, -150), (0, -250)]
 
 screen = Screen()
 screen.title("Pong")
@@ -15,6 +16,7 @@ screen.tracer(0)
 paddle1 = Paddle()
 paddle2 = Paddle2()
 ball = Ball()
+score = Scoreboard()
 
 screen.listen()
 screen.onkey(paddle1.up, "Up")
@@ -52,7 +54,8 @@ while game_not_over:
         game_not_over = False
 
     if ball.distance(paddle2) < 40 and ball.xcor() > 310 or ball.distance(paddle1) < 50 and ball.xcor() <= -310:
-
         ball.x_bounce()
+        score.clear()
+        score.increase_score()
 
 screen.exitonclick()
