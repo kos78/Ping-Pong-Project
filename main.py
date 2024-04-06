@@ -2,26 +2,27 @@ import time
 from turtle import Turtle, Screen
 from paddle import Paddle
 from paddle2 import Paddle2
+from ball import Ball
 
-SPLIT_POSITION = [(0, 300), (0, 150), (0, 0), (0, -150), (0, -300)]
+SPLIT_POSITION = [(0, 280), (0, 180),  (0, 80),  (0, -20),  (0, -100), (0, -200)]
 
 screen = Screen()
 screen.title("Pong")
 screen.bgcolor("black")
-screen.screensize(canvwidth=600, canvheight=600)
+screen.setup(width=800, height=600)
+screen.tracer(0)
 
-
-screen.update()
-time.sleep(0.1)
 paddle1 = Paddle()
 paddle2 = Paddle2()
-
+ball = Ball()
 
 screen.listen()
 screen.onkey(paddle1.up, "Up")
 screen.onkey(paddle1.down, "Down")
 screen.onkey(paddle2.down, "s")
 screen.onkey(paddle2.up, "w")
+
+game_not_over = True
 
 # create the split in the screen
 
@@ -30,8 +31,25 @@ for pos in SPLIT_POSITION:
     split.color("white")
     split.shape("square")
     split.tilt(90)
-    split.shapesize(stretch_len=3.5, stretch_wid=0.5)
+    split.shapesize(stretch_len=2, stretch_wid=0.5)
     split.penup()
     split.goto(pos)
+
+# create bounce logic
+while game_not_over:
+    time.sleep(0.2)
+    screen.update()
+    ball.move()
+    print(ball.pos())
+
+
+    # detect collision with wall
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        print("Hello")
+        ball.bounce()
+
+
+    # if ball.pos() == paddle1.pos() or ball.pos() == paddle2.pos():
+    #     ball.move()
 
 screen.exitonclick()

@@ -1,9 +1,9 @@
 from turtle import Turtle
 
-STARTING_POSITION = [(-320, 300)]
+STARTING_POSITION = [(-280, 250)]
 
 
-class Paddle:
+class Paddle(Turtle):
     def __init__(self):
         for pos in STARTING_POSITION:
             self.paddle = Turtle()

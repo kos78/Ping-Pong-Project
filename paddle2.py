@@ -11,5 +11,5 @@ class Paddle2(Paddle):
         self.paddle.shapesize(stretch_len=3.5)
         self.paddle.color("white")
         self.paddle.tilt(90)
-        self.paddle.goto(320, 300)
+        self.paddle.goto(280, 250)
 
