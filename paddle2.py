@@ -12,3 +12,11 @@ class Paddle2(Turtle):
         self.tilt(90)
         self.goto(340, 250)
 
+    def up(self):
+        new_y = self.ycor() + 10
+        self.goto(x=self.xcor(), y=new_y)
+
+    def down(self):
+        new_y = self.ycor() - 10
+        self.goto(x=self.xcor(), y=new_y)
+
