@@ -39,7 +39,7 @@ for pos in SPLIT_POSITION:
 
 # create bounce logic
 while game_not_over:
-    time.sleep(0.2)
+    time.sleep(0.11)
     screen.update()
     ball.move()
 
@@ -53,7 +53,7 @@ while game_not_over:
         ball.game_over()
         game_not_over = False
 
-    if ball.distance(paddle2) < 40 and ball.xcor() > 310 or ball.distance(paddle1) < 50 and ball.xcor() <= -310:
+    if ball.distance(paddle2) < 40 and ball.xcor() == 310 or ball.distance(paddle1) < 50 and ball.xcor() == -310:
         ball.x_bounce()
         score.clear()
         score.increase_score()
